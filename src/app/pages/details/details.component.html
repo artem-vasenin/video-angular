@@ -1,1 +1,77 @@
-<p>details works!</p>
+<mat-card class="details__card card card--centered my-50">
+  <mat-card-content class="details__card-content pa-15">
+    <div class="film" *ngIf="film$ && !loading; else noFilms">
+      <div class="film__img">
+        <img
+          [src]="film$.Poster"
+          alt="Poster"
+          class="film__img-poster"
+        >
+      </div>
+      <div class="film__info">
+        <div class="film__info-block pb-20">
+          <div class="film__info-label"><b>Название:</b></div>
+          <div class="film__info-text">{{ film$.Title }}</div>
+        </div>
+        <div class="film__info-block pb-20">
+          <div class="film__info-label"><b>Премьера:</b></div>
+          <div class="film__info-text">{{ film$.Released }}</div>
+        </div>
+        <div class="film__info-block pb-20">
+          <div class="film__info-label"><b>Режиссёр:</b></div>
+          <div class="film__info-text">{{ film$.Director }}</div>
+        </div>
+        <div class="film__info-block pb-20">
+          <div class="film__info-label"><b>Сценарист:</b></div>
+          <div class="film__info-text">{{ film$.Writer }}</div>
+        </div>
+        <div class="film__info-block pb-20">
+          <div class="film__info-label"><b>Актёры:</b></div>
+          <div class="film__info-text">{{ film$.Actors }}</div>
+        </div>
+        <div class="film__info-block pb-20">
+          <div class="film__info-label"><b>Анонс:</b></div>
+          <div class="film__info-text">{{ film$.Plot }}</div>
+        </div>
+        <div class="film__info-block pb-20">
+          <div class="film__info-label"><b>Длительность:</b></div>
+          <div class="film__info-text">{{ film$.Runtime }}</div>
+        </div>
+        <div class="film__info-block pb-20">
+          <div class="film__info-label"><b>Языки:</b></div>
+          <div class="film__info-text">{{ film$.Language }}</div>
+        </div>
+        <div class="film__info-block pb-20">
+          <div class="film__info-label"><b>Страна:</b></div>
+          <div class="film__info-text">{{ film$.Country }}</div>
+        </div>
+        <div class="film__info-block pb-20">
+          <div class="film__info-label"><b>Вышел на DVD:</b></div>
+          <div class="film__info-text">{{ film$.DVD }}</div>
+        </div>
+        <div class="film__info-block pb-20">
+          <div class="film__info-label"><b>Компания:</b></div>
+          <div class="film__info-text">{{ film$.Production }}</div>
+        </div>
+      </div>
+    </div>
+
+    <ng-template #noFilms>
+      <mat-spinner
+        diameter="30"
+        *ngIf="loading; else emptyList"
+      ></mat-spinner>
+      <ng-template #emptyList>Фильм не найден...</ng-template>
+    </ng-template>
+  </mat-card-content>
+  <mat-card-actions class="details__actions">
+    <button
+      *ngIf="film$ && !loading"
+      mat-button
+      color="primary"
+      (click)="addToList()"
+    >
+      <mat-icon>add</mat-icon> Добавить в список
+    </button>
+  </mat-card-actions>
+</mat-card>
