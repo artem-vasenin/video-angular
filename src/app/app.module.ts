@@ -14,6 +14,9 @@ import {
   MatGridList,
   MatGridTile,
   MatCardImage,
+  MatInput,
+  MatFormFieldModule,
+  MatListModule,
 } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -48,12 +51,15 @@ import { HomeComponent } from './pages/home/home.component';
     MatGridList,
     MatGridTile,
     MatCardImage,
+    MatInput,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatButtonModule,
+    MatFormFieldModule,
+    MatListModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
