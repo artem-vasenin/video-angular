@@ -1,0 +1,51 @@
+$mt: 100;
+@while $mt > 0 {
+  .mt-#{$mt} { margin-top: $mt * 1px!important; }
+  $mt: $mt - 5;
+}
+
+$mb: 100;
+@while $mb > 0 {
+  .mb-#{$mb} { margin-bottom: $mb * 1px!important; }
+  $mb: $mb - 5;
+}
+
+$ml: 100;
+@while $ml > 0 {
+  .ml-#{$ml} { margin-left: $ml * 1px!important; }
+  $ml: $ml - 5;
+}
+
+$mr: 100;
+@while $mr > 0 {
+  .mr-#{$mr} { margin-right: $mr * 1px!important; }
+  $mr: $mr - 5;
+}
+
+$ma: 100;
+@while $ma > 0 {
+  .ma-#{$ma} { margin: $ma * 1px!important; }
+  $ma: $ma - 5;
+}
+
+$mx: 100;
+@while $mx > 0 {
+  .mx-#{$mx} {
+    margin-left: $mx * 1px!important;
+    margin-right: $mx * 1px!important;
+  }
+  $mx: $mx - 5;
+}
+
+$my: 100;
+@while $my > 0 {
+  .my-#{$my} {
+    margin-top: $my * 1px!important;
+    margin-bottom: $my * 1px!important;
+  }
+  $my: $my - 5;
+}
+
+.ma-0 { margin: 0!important; }
+.mx-0 { margin-left: 0!important; margin-right: 0!important; }
+.my-0 { margin-top: 0!important; margin-bottom: 0!important; }

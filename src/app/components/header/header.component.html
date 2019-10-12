@@ -1,1 +1,38 @@
-<p>header works!</p>
+<mat-toolbar color="primary" class="header__nav">
+  <mat-toolbar-row>
+    <a
+      class="header__nav-link"
+      routerLink="/"
+      title="Домой"
+    >
+      <mat-icon
+        class="example-icon"
+        aria-hidden="false"
+        aria-label="home"
+      >home</mat-icon>
+    </a>
+    <a
+      class="header__nav-link"
+      routerLink="list"
+      title="Список видео"
+    >
+      <mat-icon
+        class="example-icon"
+        aria-hidden="false"
+        aria-label="list"
+      >list</mat-icon>
+    </a>
+    <span class="example-spacer"></span>
+    <a
+      class="header__nav-link"
+      routerLink="search"
+      title="Поиск видео"
+    >
+      <mat-icon
+        class="example-icon"
+        aria-hidden="false"
+        aria-label="search"
+      >search</mat-icon>
+    </a>
+  </mat-toolbar-row>
+</mat-toolbar>

@@ -1,5 +1,20 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {
+  MatToolbar,
+  MatToolbarRow,
+  MatIcon,
+  MatCard,
+  MatCardTitle,
+  MatCardActions,
+  MatCardContent,
+  MatCardHeader,
+  MatCardSubtitle,
+  MatButtonModule,
+  MatGridList,
+  MatGridTile,
+  MatCardImage,
+} from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,6 +24,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { SearchComponent } from './pages/search/search.component';
 import { ListComponent } from './pages/list/list.component';
 import { DetailsComponent } from './pages/details/details.component';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
@@ -17,12 +33,27 @@ import { DetailsComponent } from './pages/details/details.component';
     FooterComponent,
     SearchComponent,
     ListComponent,
-    DetailsComponent
+    DetailsComponent,
+    // material
+    MatToolbar,
+    MatToolbarRow,
+    MatIcon,
+    HomeComponent,
+    MatCard,
+    MatCardHeader,
+    MatCardSubtitle,
+    MatCardTitle,
+    MatCardActions,
+    MatCardContent,
+    MatGridList,
+    MatGridTile,
+    MatCardImage,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

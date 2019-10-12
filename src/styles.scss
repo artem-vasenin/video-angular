@@ -1,2 +1,10 @@
 @import 'assets/scss/variables';
 @import 'assets/scss/base';
+@import 'assets/scss/material';
+
+// atoms
+@import 'assets/scss/atoms/button';
+
+//helpers
+@import 'assets/scss/helpers/paddings';
+@import 'assets/scss/helpers/margins';

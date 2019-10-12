@@ -5,3 +5,9 @@ body {
   margin: 0;
   font-family: $font-roboto;
 }
+
+.site {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}

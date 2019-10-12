@@ -1,0 +1,51 @@
+$pt: 100;
+@while $pt > 0 {
+  .pt-#{$pt} { padding-top: $pt * 1px!important; }
+  $pt: $pt - 5;
+}
+
+$pb: 100;
+@while $pb > 0 {
+  .pb-#{$pb} { padding-bottom: $pb * 1px!important; }
+  $pb: $pb - 5;
+}
+
+$pl: 100;
+@while $pl > 0 {
+  .pl-#{$pl} { padding-left: $pl * 1px!important; }
+  $pl: $pl - 5;
+}
+
+$pr: 100;
+@while $pr > 0 {
+  .pr-#{$pr} { padding-right: $pr * 1px!important; }
+  $pr: $pr - 5;
+}
+
+$pa: 100;
+@while $pa > 0 {
+  .pa-#{$pa} { padding: $pa * 1px!important; }
+  $pa: $pa - 5;
+}
+
+$px: 100;
+@while $px > 0 {
+  .px-#{$px} {
+    padding-left: $px * 1px!important;
+    padding-right: $px * 1px!important;
+  }
+  $px: $px - 5;
+}
+
+$py: 100;
+@while $py > 0 {
+  .py-#{$py} {
+    padding-top: $py * 1px!important;
+    padding-bottom: $py * 1px!important;
+  }
+  $py: $py - 5;
+}
+
+.pa-0 { padding: 0!important; }
+.px-0 { padding-left: 0!important; padding-right: 0!important; }
+.py-0 { padding-top: 0!important; padding-bottom: 0!important; }
