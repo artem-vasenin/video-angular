@@ -4,38 +4,38 @@
       <mat-card-title class="search__card-title">
         Поиск фильмов
       </mat-card-title>
-      <mat-card-subtitle class="search__card-subtitle">
-        Введите название в строке поиска
-      </mat-card-subtitle>
     </mat-card-header>
     <mat-card-content class="search__card-content px-15">
+      <!-- Autocomplete -->
       <div class="search__input-wrap">
-        <mat-form-field class="search__form-field">
-          <input
-            matInput
-            placeholder="Поиск"
-            [value]="search"
-            (input)="search = $event.target.value"
-          >
-        </mat-form-field>
+        <form class="search__form-wrap">
+          <form class="search__form">
+            <mat-form-field class="search__form-field">
+              <input
+                type="text"
+                placeholder="Введите название фильма"
+                aria-label="Введите название фильма"
+                matInput
+                [value]="search"
+                (input)="searchFilms($event.target.value)"
+                [matAutocomplete]="auto">
+              <mat-autocomplete #auto="matAutocomplete">
+                <mat-option
+                  *ngFor="let option of films$"
+                  [value]="option.Title"
+                  (click)="getFilmDetails(option.imdbID)"
+                >
+                  {{ option.Title }} ({{ option.Year }})
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+          </form>
+        </form>
       </div>
-
-      <div class="search__list">
-        <mat-list>
-          <h3 class="pa-0" mat-subheader>Список найденных фильмов</h3>
-          <mat-list-item>
-            <mat-icon mat-list-icon>ondemand_video</mat-icon>
-            <h4 mat-line>Name</h4>
-            <p mat-line>Date</p>
-          </mat-list-item>
-        </mat-list>
-      </div>
+      <!-- /Autocomplete -->
     </mat-card-content>
-    <mat-card-actions class="search__card-actions px-20">
-      <button
-        mat-stroked-button
-        color="primary"
-      >Найти</button>
+    <mat-card-actions>
+
     </mat-card-actions>
   </mat-card>
 </section>

@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from "@angular/common/http";
 import {
   MatToolbar,
   MatToolbarRow,
@@ -17,6 +18,8 @@ import {
   MatInput,
   MatFormFieldModule,
   MatListModule,
+  MatProgressSpinnerModule,
+  MatAutocompleteModule,
 } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -56,10 +59,13 @@ import { HomeComponent } from './pages/home/home.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     MatButtonModule,
     MatFormFieldModule,
     MatListModule,
+    MatProgressSpinnerModule,
+    MatAutocompleteModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
