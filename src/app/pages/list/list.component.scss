@@ -1,0 +1,19 @@
+@import '../../../assets/scss/variables';
+
+.details {
+  &__list-poster {
+    width: 40px!important;
+    height: 40px!important;
+  }
+  &__card-actions {
+    text-align: right;
+  }
+  &__list-link {
+    color: $color-primary;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

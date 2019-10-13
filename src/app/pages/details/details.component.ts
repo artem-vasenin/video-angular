@@ -1,8 +1,8 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { SearchService } from "../../services/search.service";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { Subscription } from "rxjs";
-import {IFilm, IFilmShort} from "../../models";
+import { IFilm, IFilmShort } from "../../models";
 
 @Component({
   selector: 'app-details',
@@ -20,6 +20,7 @@ export class DetailsComponent implements OnInit, OnDestroy {
   constructor(
     private searchService: SearchService,
     private route: ActivatedRoute,
+    private router: Router,
   ) {
     this.routeSubscription = this.route.paramMap
       .subscribe(params => {
@@ -40,9 +41,7 @@ export class DetailsComponent implements OnInit, OnDestroy {
       });
   }
 
-  /**
-   * Добавить выбранный фильм в свой список
-   */
+  /** Добавить выбранный фильм в свой список */
   addToList() {
     if (this.films.length
       && this.films.find(i => i.imdbID === this.film$.imdbID) !== undefined) {
@@ -57,15 +56,29 @@ export class DetailsComponent implements OnInit, OnDestroy {
       };
       this.films.push(data);
       localStorage.films = JSON.stringify(this.films);
-      console.log(localStorage.films);
+      this.router.navigate(['/list']);
     }
   }
 
+  /** Проверка есть ли данный фильм в нашем списке */
+  filmNotFind() {
+    return !!(this.films.find(item => item.imdbID === this.imdbID) === undefined);
+  }
+
+  /** Получить список фильмов из локального хранилища */
   getMyFilms() {
     const localFilms = localStorage.films;
     if (localFilms && localFilms !== '[]') {
       this.films = JSON.parse(localFilms);
     }
+  }
+
+  /** Удалить фильм из списка */
+  removeFromList() {
+    const newFilmsList = this.films.filter(item => item.imdbID !== this.imdbID);
+    this.films = newFilmsList;
+    localStorage.films = JSON.stringify(newFilmsList);
+    this.router.navigate(['/list']);
   }
 
   ngOnInit() {
@@ -76,5 +89,4 @@ export class DetailsComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     if (this.fSub) this.fSub.unsubscribe();
   }
-
 }

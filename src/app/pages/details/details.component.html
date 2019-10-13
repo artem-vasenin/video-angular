@@ -1,14 +1,20 @@
 <mat-card class="details__card card card--centered my-50">
   <mat-card-content class="details__card-content pa-15">
     <div class="film" *ngIf="film$ && !loading; else noFilms">
-      <div class="film__img">
+      <div
+        class="film__img"
+        *ngIf="film$.Poster !== 'N/A'"
+      >
         <img
           [src]="film$.Poster"
           alt="Poster"
           class="film__img-poster"
         >
       </div>
-      <div class="film__info">
+      <div
+        class="film__info"
+        [ngClass]="{full: film$.Poster === 'N/A'}"
+      >
         <div class="film__info-block pb-20">
           <div class="film__info-label"><b>Название:</b></div>
           <div class="film__info-text">{{ film$.Title }}</div>
@@ -66,12 +72,21 @@
   </mat-card-content>
   <mat-card-actions class="details__actions">
     <button
-      *ngIf="film$ && !loading"
+      *ngIf="film$ && !loading && filmNotFind()"
       mat-button
       color="primary"
       (click)="addToList()"
     >
       <mat-icon>add</mat-icon> Добавить в список
+    </button>
+
+    <button
+      *ngIf="film$ && !loading && !filmNotFind()"
+      mat-button
+      color="primary"
+      (click)="removeFromList()"
+    >
+      <mat-icon>delete_forever</mat-icon> Удалить из списка
     </button>
   </mat-card-actions>
 </mat-card>

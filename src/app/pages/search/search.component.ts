@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { SearchService } from "../../services/search.service";
 import { Subscription } from "rxjs";
-import { IFilm, IFilmShort } from "../../models";
+import { IFilmShort } from "../../models";
 import { Router } from "@angular/router";
 
 @Component({
@@ -50,5 +50,4 @@ export class SearchComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     if (this.fSub) this.fSub.unsubscribe();
   }
-
 }

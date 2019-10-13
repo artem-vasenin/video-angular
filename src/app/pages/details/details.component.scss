@@ -17,6 +17,11 @@
   &__info {
     flex: 1 1 calc(100% - 180px);
     max-width: calc(100% - 180px);
+
+    &.full {
+      flex: 1 1 100%;
+      max-width: 100%;
+    }
   }
 
   &__img-poster {

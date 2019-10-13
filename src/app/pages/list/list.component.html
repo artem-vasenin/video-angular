@@ -1,1 +1,52 @@
-<p>list works!</p>
+<mat-card class="details__card card card--centered my-50">
+  <mat-card-header class="home__card-header">
+    <mat-card-title class="home__card-title">
+      Список фильмов
+    </mat-card-title>
+    <mat-card-subtitle class="home__card-subtitle">
+      Список можно пополнять или сокращать
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content class="details__card-content pa-15">
+    <div class="details__results">
+      <div class="details__list-wrap" *ngIf="films.length && !loading; else noFilms">
+        <mat-list class="details__list">
+          <mat-list-item
+            class="details__list-item"
+            *ngFor="let film of films; let i = index"
+          >
+            <button
+              mat-mini-fab
+              color="warn"
+              (click)="removeFilm(film.imdbID)"
+            >
+              <mat-icon>delete_forever</mat-icon>
+            </button>
+            <img
+              mat-list-icon
+              [src]="film.Poster !== 'N/A' ? film.Poster : 'https://www.processgenius.fi/sites/default/files/2019-08/video-poster.jpg'"
+              alt="Poster"
+              class="details__list-poster"
+            >
+            <a
+              mat-line
+              class="details__list-link"
+              [routerLink]="['/details', film.imdbID]"
+            >
+              <b>{{ film.Title }}</b>&nbsp;
+              <small>({{ film.Year }})</small>&nbsp;
+            </a>
+          </mat-list-item>
+        </mat-list>
+      </div>
+
+      <ng-template #noFilms>
+        <mat-spinner
+          diameter="30"
+          *ngIf="loading; else emptyList"
+        ></mat-spinner>
+        <ng-template #emptyList>Список пуст...</ng-template>
+      </ng-template>
+    </div>
+  </mat-card-content>
+</mat-card>
