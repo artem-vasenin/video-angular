@@ -2,6 +2,13 @@
   &__actions {
     text-align: right;
   }
+
+  @media (max-width: 768px) {
+    &__card {
+      margin: 10px 0;
+      width: calc(100% - 20px);
+    }
+  }
 }
 
 .film {
@@ -38,5 +45,30 @@
 
   &__info-text {
     display: inline-block;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+
+    &__img {
+      flex: 1 1 100%;
+      max-width: 100%;
+      padding-right: 0;
+      padding-bottom: 30px;
+    }
+
+    &__img-poster {
+      width: 100%;
+    }
+
+    &__info {
+      flex: 1 1 100%;
+      max-width: 100%;
+
+      &.full {
+        flex: 1 1 100%;
+        max-width: 100%;
+      }
+    }
   }
 }
