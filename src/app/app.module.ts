@@ -31,6 +31,8 @@ import { SearchComponent } from './pages/search/search.component';
 import { ListComponent } from './pages/list/list.component';
 import { DetailsComponent } from './pages/details/details.component';
 import { HomeComponent } from './pages/home/home.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -66,6 +68,7 @@ import { HomeComponent } from './pages/home/home.component';
     MatListModule,
     MatProgressSpinnerModule,
     MatAutocompleteModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [],
   bootstrap: [AppComponent]
